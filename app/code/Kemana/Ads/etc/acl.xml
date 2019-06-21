@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Kemana_Ads::Ads" sortOrder="10" title="Ads">
+					<resource id="Kemana_Ads::Ads_save" sortOrder="10" title="Save Ads"/>
+					<resource id="Kemana_Ads::Ads_delete" sortOrder="20" title="Delete Ads"/>
+					<resource id="Kemana_Ads::Ads_update" sortOrder="30" title="Update Ads"/>
+					<resource id="Kemana_Ads::Ads_view" sortOrder="40" title="View Ads"/>
+				</resource>
+				<resource id="Magento_Backend::stores">
+					<resource id="Magento_Backend::stores_settings">
+						<resource id="Magento_Config::config">
+							<resource id="Kemana_Ads::config_kemana_ads" title="ads"/>
+						</resource>
+					</resource>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>

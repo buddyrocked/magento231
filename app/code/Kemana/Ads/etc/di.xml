@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Kemana\Ads\Api\AdsRepositoryInterface" type="Kemana\Ads\Model\AdsRepository"/>
+	<preference for="Kemana\Ads\Api\Data\AdsInterface" type="Kemana\Ads\Model\Data\Ads"/>
+	<preference for="Kemana\Ads\Api\Data\AdsSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Kemana\Ads\Model\ResourceModel\Ads\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">kemana_ads_ads</argument>
+			<argument name="resourceModel" xsi:type="string">Kemana\Ads\Model\ResourceModel\Ads\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="kemana_ads_ads_listing_data_source" xsi:type="string">Kemana\Ads\Model\ResourceModel\Ads\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+	<virtualType name="Kemana\Ads\AdsImageUpload" type="Kemana\Ads\Model\ImageUploader">
+	    <arguments>
+            <argument name="baseTmpPath" xsi:type="string">ads/tmp/upload</argument>
+            <argument name="basePath" xsi:type="string">ads/upload</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+	    </arguments>
+	</virtualType>
+	<type name="Kemana\Ads\Controller\Adminhtml\Index\Upload">
+	    <arguments>
+	        <argument name="imageUploader" xsi:type="object">Kemana\Ads\AdsImageUpload</argument>
+	    </arguments>
+	</type>
+</config>

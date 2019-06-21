@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<update handle="default_head_blocks"/>
+	<body>
+		<referenceContainer name="header.container">
+	        <block class="Magento\Framework\View\Element\Template" name="header.top.banner"
+	           template="Magento_Theme::header-top-banner.phtml" before="-"/>
+	        <container name="header.top.panel.container" htmlTag="div" htmlClass="header-top-panel-container" after="header.top.banner">
+                <container name="header.top.wrapper" htmlTag="div" htmlClass="container">
+                	<container name="store.info.container"  htmlTag="div" htmlClass="store-info-container">
+	                    <block class="Magento\Framework\View\Element\Template" name="store.info" template="Magento_Theme::store-info.phtml" />
+	                </container>
+	                <container name="store.nav.container" htmlTag="div" htmlClass="store-nav-container" after="store.info.container">
+	                    <block class="Magento\Customer\Block\Account\Navigation" name="store.nav">
+	                    	<block class="Magento\Customer\Block\Account\SortLink" name="contact-us-link">
+				                <arguments>
+				                    <argument name="label" xsi:type="string" translate="true">Contact Us</argument>
+				                    <argument name="path" xsi:type="string">#</argument>
+				                    <argument name="sortOrder" xsi:type="number">0</argument>
+				                </arguments>
+				            </block>
+				            <block class="Magento\Customer\Block\Account\SortLink" name="store-location-link">
+				                <arguments>
+				                    <argument name="label" xsi:type="string" translate="true">Store Location</argument>
+				                    <argument name="path" xsi:type="string">#</argument>
+				                    <argument name="sortOrder" xsi:type="number">1</argument>
+				                </arguments>
+				            </block>
+	                        <block class="Magento\Customer\Block\Account\SortLink" name="tracking-order-link">
+				                <arguments>
+				                    <argument name="label" xsi:type="string" translate="true">Order Tracking</argument>
+				                    <argument name="path" xsi:type="string">#</argument>
+				                    <argument name="sortOrder" xsi:type="number">2</argument>
+				                </arguments>
+				            </block>
+				            <block class="Magento\Customer\Block\Account\SortLink" name="plus-one-link">
+				                <arguments>
+				                    <argument name="label" xsi:type="string" translate="true">Plusone Membership</argument>
+				                    <argument name="path" xsi:type="string">#</argument>
+				                    <argument name="sortOrder" xsi:type="number">3</argument>
+				                </arguments>
+				            </block>
+	                    </block>
+	                </container>
+                </container>
+            </container>
+		</referenceContainer>
+		<referenceBlock name="header.panel" remove="true" />
+	</body>
+</page>

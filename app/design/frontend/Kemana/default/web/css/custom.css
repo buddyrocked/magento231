@@ -1,0 +1,36 @@
+body {
+	overflow-x: hidden;
+}
+
+#header-top-banner {
+	border-bottom: 1px solid #f1f1f1;
+	display: block;
+	height: 50px;
+	position: relative;
+	width: 100%;
+}
+
+a#close_banner {
+	right: 0px;
+	top: 20px;
+	position: absolute;
+}
+
+#header-top-panel {
+	background: #f0f0f0;
+	border-bottom: 1px solid #f1f1f1;
+	display: block;
+	height: 40px;
+	position: relative;
+	width: 100%;
+}
+
+div.store-info-container {
+	display: inline-block;
+	float: left;
+}
+
+div.store-nav-container {
+	display: inline-block;
+	float: right;
+}

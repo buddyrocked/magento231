@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table comment="kemana_ads_ads Table" engine="innodb" name="kemana_ads_ads" resource="default">
+		<column comment="Entity Id" identity="true" name="ads_id" nullable="false" padding="6" unsigned="false" xsi:type="smallint"/>
+		<constraint referenceId="PRIMARY" xsi:type="primary">
+			<column name="ads_id"/>
+		</constraint>
+		<column length="255" name="title" nullable="false" xsi:type="varchar"/>
+		<column length="255" name="link" nullable="false" xsi:type="varchar"/>
+		<column length="255" name="image" nullable="false" xsi:type="varchar"/>
+		<column length="255" name="image_mobile" nullable="false" xsi:type="varchar"/>
+		<column padding="10" name="created" nullable="true" comment="created" xsi:type="timestamp"/>
+		<column padding="10" name="updated" nullable="true" comment="updated" xsi:type="timestamp"/>
+		<column name="status" nullable="false" xsi:type="boolean"/>
+	</table>
+</schema>

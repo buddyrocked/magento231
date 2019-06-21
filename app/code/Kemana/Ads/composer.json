@@ -1,0 +1,26 @@
+{
+    "name": "kemana/module-ads",
+    "description": "Kemana Ads Module",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "email": "info@mage2gen.com",
+            "name": "Mage2Gen"
+        },
+        {
+            "email": "budihariyana@gmail.com",
+            "name": "budi hariyana"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Kemana\\Ads\\": ""
+        }
+    }
+}

@@ -1,0 +1,20 @@
+# Ignore everything
+/*
+
+# But not these files...
+!.gitignore
+!composer.json
+!/app
+/app/*
+!/app/code
+!/app/design
+!/pub/
+/pub/*
+!/pub/errors/
+/pub/errors/*
+!/pub/errors/local.xml
+!/pub/errors/custom
+# etc...
+
+# ...even if they are in subdirectories
+#!*/

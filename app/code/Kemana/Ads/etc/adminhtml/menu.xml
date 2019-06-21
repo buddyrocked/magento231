@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Kemana::top_level" module="Kemana_Ads" resource="Magento_Backend::content" sortOrder="9999" title="Kemana"/>
+		<add action="kemana_ads/ads/index" id="Kemana_Ads::kemana_ads_ads" module="Kemana_Ads" parent="Kemana::top_level" resource="Magento_Backend::content" sortOrder="9999" title="Ads"/>
+	</menu>
+</config>
