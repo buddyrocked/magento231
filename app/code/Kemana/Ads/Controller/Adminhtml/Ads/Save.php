@@ -10,6 +10,7 @@ class Save extends \Magento\Backend\App\Action
 {
 
     protected $dataPersistor;
+    protected $imageUploader;
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
@@ -30,7 +31,6 @@ class Save extends \Magento\Backend\App\Action
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->getRequest()->getPostValue();
         if ($data) {
-
             $id = $this->getRequest()->getParam('ads_id');
         
             $model = $this->_objectManager->create(\Kemana\Ads\Model\Ads::class)->load($id);
@@ -39,11 +39,34 @@ class Save extends \Magento\Backend\App\Action
                 return $resultRedirect->setPath('*/*/');
             }
 
-            $data = $this->_filterFoodData($data);
-        
-            $model->setData($data);
-        
             try {
+
+                if (isset($data['image'][0]['name']) && isset($data['image'][0]['tmp_name'])) {
+                    $data['image'] =$data['image'][0]['name'];
+                    $this->imageUploader = \Magento\Framework\App\ObjectManager::getInstance()->get(
+                        'Kemana\Ads\AdsImageUpload'
+                    );
+                    $this->imageUploader->moveFileFromTmp($data['image']);
+                } elseif (isset($data['image'][0]['image']) && !isset($data['image'][0]['tmp_name'])) {
+                    $data['image'] = $data['image'][0]['image'];
+                } else {
+                    $data['image'] = null;
+                }
+
+                if (isset($data['image_mobile'][0]['name']) && isset($data['image_mobile'][0]['tmp_name'])) {
+                    $data['image_mobile'] =$data['image_mobile'][0]['name'];
+                    $this->image_mobileUploader = \Magento\Framework\App\ObjectManager::getInstance()->get(
+                        'Kemana\Ads\AdsImageUpload'
+                    );
+                    $this->image_mobileUploader->moveFileFromTmp($data['image_mobile']);
+                } elseif (isset($data['image_mobile'][0]['image_mobile']) && !isset($data['image_mobile'][0]['tmp_name'])) {
+                    $data['image_mobile'] = $data['image_mobile'][0]['image_mobile'];
+                } else {
+                    $data['image_mobile'] = null;
+                }
+
+                $model->setData($data);
+            
                 $model->save();
                 $this->messageManager->addSuccessMessage(__('You saved the Ads.'));
         

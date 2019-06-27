@@ -18,8 +18,8 @@
 	</type>
 	<virtualType name="Kemana\Ads\AdsImageUpload" type="Kemana\Ads\Model\ImageUploader">
 	    <arguments>
-            <argument name="baseTmpPath" xsi:type="string">ads/tmp/upload</argument>
-            <argument name="basePath" xsi:type="string">ads/upload</argument>
+            <argument name="baseTmpPath" xsi:type="string">test/tmp</argument>
+            <argument name="basePath" xsi:type="string">test</argument>
             <argument name="allowedExtensions" xsi:type="array">
                 <item name="jpg" xsi:type="string">jpg</item>
                 <item name="jpeg" xsi:type="string">jpeg</item>
@@ -28,7 +28,12 @@
             </argument>
 	    </arguments>
 	</virtualType>
-	<type name="Kemana\Ads\Controller\Adminhtml\Index\Upload">
+	<type name="Kemana\Ads\Controller\Adminhtml\Ads\Upload">
+	    <arguments>
+	        <argument name="imageUploader" xsi:type="object">Kemana\Ads\AdsImageUpload</argument>
+	    </arguments>
+	</type>
+	<type name="Kemana\Ads\Controller\Adminhtml\Ads\Uploadmobile">
 	    <arguments>
 	        <argument name="imageUploader" xsi:type="object">Kemana\Ads\AdsImageUpload</argument>
 	    </arguments>

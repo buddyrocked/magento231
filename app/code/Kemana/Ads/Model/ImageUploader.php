@@ -96,9 +96,9 @@ class ImageUploader
         $this->uploaderFactory = $uploaderFactory;
         $this->storeManager = $storeManager;
         $this->logger = $logger;
-        $this->baseTmpPath = "ads/tmp/upload";
-        $this->basePath = "ads/upload";
-        $this->allowedExtensions= ['jpg', 'jpeg', 'gif', 'png'];
+        $this->baseTmpPath = $baseTmpPath;
+        $this->basePath = $basePath;
+        $this->allowedExtensions= $allowedExtensions;
     }
 
     /**

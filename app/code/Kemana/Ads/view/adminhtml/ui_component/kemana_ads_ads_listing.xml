@@ -85,13 +85,6 @@
 				</editor>
 			</settings>
 		</column>
-		<actionsColumn class="Kemana\Ads\Ui\Component\Listing\Column\AdsActions" name="actions">
-			<settings>
-				<indexField>ads_id</indexField>
-				<resizeEnabled>false</resizeEnabled>
-				<resizeDefaultWidth>107</resizeDefaultWidth>
-			</settings>
-		</actionsColumn>
 		<column name="link">
 			<settings>
 				<filter>text</filter>
@@ -104,5 +97,12 @@
 				</editor>
 			</settings>
 		</column>
+		<actionsColumn class="Kemana\Ads\Ui\Component\Listing\Column\AdsActions" name="actions">
+			<settings>
+				<indexField>ads_id</indexField>
+				<resizeEnabled>false</resizeEnabled>
+				<resizeDefaultWidth>107</resizeDefaultWidth>
+			</settings>
+		</actionsColumn>
 	</columns>
 </listing>
